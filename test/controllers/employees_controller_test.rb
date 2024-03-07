@@ -27,4 +27,19 @@ class EmployeesControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal employee.first_name,data["first_name"]
   end
+  test "destroy" do
+    assert_difference "Employee.count", -1 do
+      delete "/employees/#{Employee.first.id}.json"
+      assert_response 200
+    end
+  end
+  test "update" do
+    employee = Employee.first
+    patch "/employees/#{employee.id}.json", 
+    params: {email: "Bob"}
+    assert_response 200
+    updated_employee = Employee.find(employee.id)
+    # data = JSON.parse(response.body)
+    assert_equal "Bob", updated_employee.email
+  end
 end

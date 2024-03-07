@@ -7,3 +7,4 @@ json.department_id employee.department_id
 json.created_at employee.created_at
 json.updated_at employee.updated_at
 json.id employee.id
+json.department employee.department

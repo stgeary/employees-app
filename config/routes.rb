@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   get "/employees" => "employees#index"
   get "/employees/:id" => "employees#show"
+  post "/employees" => "employees#create"
+  patch"/employees/:id" => "employees#update"
 end

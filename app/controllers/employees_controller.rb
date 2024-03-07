@@ -30,4 +30,9 @@ class EmployeesController < ApplicationController
         )
         render :show
     end 
+    def destroy
+        @employee = Employee.find_by(id: params[:id])
+        @employee.destroy
+        render json: {message:"That dude got fired lol"}
+    end
 end
